@@ -16,7 +16,7 @@
 
 function calcStd(n, ...x) {
   let sum = 0;
-  for (let i = 0; i < x.length; i++) {
+  for (let i = 0; i < n; i++) {
     sum += x[i];
   }
 
@@ -25,7 +25,7 @@ function calcStd(n, ...x) {
   const avg = sum / n;
   console.log(avg);
   let a = 0;
-  for (let i = 0; i < x.length; i++) {
+  for (let i = 0; i < n; i++) {
     a += (x[i] - avg) ** 2;
   }
   const b = a / n;
@@ -39,3 +39,29 @@ function calcStd(n, ...x) {
 }
 
 calcStd(6, 1, 2, 3, 4, 5, 6);
+
+//*==================================================================
+
+//& Metwally code:
+
+var sd = (ave = n = a = b = 0);
+var x = [];
+
+n = Number(prompt("n=?"));
+
+for (var i = 0; i < n; i++) {
+  x[i] = Number(prompt("x[" + i + "]"));
+  ave += x[i];
+}
+
+ave = ave / n;
+
+//console.log(ave);
+
+for (var i = 0; i < n; i++) {
+  a += Math.pow(x[i] - ave, 2);
+}
+
+b = a / n;
+
+sd = Math.sqrt(b);
