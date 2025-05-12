@@ -1,6 +1,8 @@
 //! 05 – Algorithms Analysis – Introduction
 
-//* algorithm analysis measures approximately code performance, according to infinite number number of inputs
+//* algorithm analysis measures approximately code efficiency or performance, according to infinite number number of inputs
+
+//* code efficiency means time that the code will take to be executed
 
 //! 06 – Algorithms Analysis – Calculus Function
 
@@ -16,8 +18,10 @@
 
 //* notation: forms or symbols to describe group of values or operations
 
-//* Growth rate of a function, with respect to inputs growth and resulted outputs growth
+//* Growth rate of a function, with respect to inputs growth and resulted outputs growth in contrast
 //* O === Order of the function
+
+//* كلما ما بكبر المدخلات، المخرجات بتزيد بشكل قد ايه
 
 //* base of log in computer science is 2
 //* base of log in math is 10
