@@ -30,7 +30,7 @@
 //* Define fn_mergerSort(arr,start,end);
 //* fn inputs: arr[], start and end index inside fn_mergeSort()
 //* if (start === end) break the recursion
-//* calculate the midpoint = (end - start) / 2
+//* calculate the midpoint = (end+start) / 2
 //* call the fn_mergeSort() recursively twice with different parameters to split arr[]
 //* call merge fn to split the two arrays
 
@@ -52,9 +52,9 @@ function mergeSort(arr, start, end) {
   //* fn inputs: arr[], start and end index inside fn_mergeSort()
 
   //* if (start === end) break the recursion
-  if (start === end) return;
+  if (start == end) return;
   //* calculate the midpoint = (start + end) / 2
-  let midpoint = Math.floor((end - start) / 2);
+  let midpoint = Math.floor((end + start) / 2);
   //* call the fn_mergeSort() recursively twice with different parameters
   mergeSort(arr, start, midpoint); //* merge sort for left
   mergeSort(arr, midpoint + 1, end); //* merge sort for right
@@ -67,9 +67,18 @@ function mergeSort(arr, start, end) {
 function merge(arr, start, midpoint, end) {
   //* fn inputs: the arr[], start, midpoint and end index
 
-  //* create new arrays for each side
-  const right_arr = [];
+  //* create new arrays for each side and fill them by for loop
+
   const left_arr = [];
+  const left_length = midpoint - start + 1;
+  for (let i = 0; i < left_length; i++) {
+    left_arr[i] = arr[i + start];
+  }
+  const right_arr = [];
+  const right_length = end - midpoint;
+  for (let j = 0; j < right_length; j++) {
+    right_arr[j] = arr[midpoint + 1 + j];
+  }
 
   //* while loop to compare all items in the array and sort in the original array
   let i,
@@ -122,3 +131,60 @@ const arr = [9, 5, 1, 4];
 console.log(arr);
 mergeSort(arr, 0, arr.length - 1);
 console.log(`After sort: ${arr}`);
+
+//! mentor
+
+/*
+
+
+  const left_arr = [];
+  const left_length = midpoint - start + 1;
+  for (let i = 0; i < left_length; i++) {
+    left_arr[i] = arr[i + start]; //! define these indexes I found difficulty but after slow tracing
+  }
+  const right_arr = [];
+  const right_length = end - midpoint;
+  for (let j = 0; j < right_length; j++) {
+    right_arr[j] = arr[midpoint + 1 + j]; //! define these indexes I found difficulty but after slow tracing
+  }
+
+*/
+
+//& important notes about merge sort:
+
+//* split the array into two parts (left and right)
+//* code due to recursion, will continue division on left part till end (when start = end)
+//* then will call merge function to merge sort these splits on left parts
+
+//! then:
+//* the code start to split the right part, till the end
+//* then merge sort these splits on right parts
+
+//* then merge sort the left and right
+//^ look up the slides for more understanding
+
+//^ note in recursion:
+
+function mergeSort(arr, start, end) {
+  if (start == end) return;
+
+  let midpoint = Math.floor((end + start) / 2);
+  mergeSort(arr, start, midpoint); //* merge sort for left
+  mergeSort(arr, midpoint + 1, end); //* merge sort for right
+  merge(arr, start, midpoint, end);
+}
+
+//^ the code sequence:
+//* recursive call for left part:
+//~   mergeSort(arr, start, midpoint), till the end
+//* recursive call for right part:
+//~   mergeSort(arr, midpoint + 1, end), till the end
+
+//* regular call: merge fn for left part
+//~     merge(arr, start, midpoint, end);
+//* regular call: merge fn for right part
+//~      merge(arr, start, midpoint, end);
+
+//* note: the start and end params in  merge(arr, start, midpoint, end)
+//* are different for each part (left and right)
+//* but midpoint is same
