@@ -152,13 +152,23 @@ console.log(`After sort: ${arr}`);
 
 //& important notes about merge sort:
 
-//* split the array into two parts (left and right)
-//* code due to recursion, will continue division on left part till end (when start = end)
-//* then will call merge function to merge sort these splits on left parts
-
+//* the idea of merge sort
+//* that the code starts to calculate midpoints of the unsorted array.
+//* these midpoints, the code will use it later in the merge sort function
+//* to split the unsorted array and apply the divide and conquer strategy
+//* the code due to recursion, will continue defining midpoints on left part till end (when start = end)
+//* then code will call merge function to merge sort the left part at each of these midpoints
+//~ merge(arr, start, midpoint, end)
 //! then:
-//* the code start to split the right part, till the end
-//* then merge sort these splits on right parts
+//* the code start to define midpoints in the right part, till the end
+//* then will call merge function to merge sort the right part at each of these midpoints
+//* every midpoint passed as parameter will be combined with respective start and end of this portion of this midpoint
+//~ merge(arr, start, midpoint, end)
+
+//^ note:
+//* the division of unsorted array at defined midpoint starts to take place
+//* when calling the merge function:
+//~ merge(arr, start, midpoint, end)
 
 //* then merge sort the left and right
 //^ look up the slides for more understanding
@@ -174,6 +184,13 @@ function mergeSort(arr, start, end) {
   merge(arr, start, midpoint, end);
 }
 
+//^ note in division:
+//* if the array length is odd
+//* the resulted division: will be two splitted arrays: the left array length will be bigger than the right array length
+
+//* if the array length is even
+//* the both splitted arrays will have the same length
+
 //^ the code sequence:
 //* recursive call for left part:
 //~   mergeSort(arr, start, midpoint), till the end
@@ -181,9 +198,9 @@ function mergeSort(arr, start, end) {
 //~   mergeSort(arr, midpoint + 1, end), till the end
 
 //* regular call: merge fn for left part
-//~     merge(arr, start, midpoint, end);
+//~    merge(arr, start, midpoint, end);
 //* regular call: merge fn for right part
-//~      merge(arr, start, midpoint, end);
+//~    merge(arr, start, midpoint, end);
 
 //* note: the start and end params in  merge(arr, start, midpoint, end)
 //* are different for each part (left and right)
