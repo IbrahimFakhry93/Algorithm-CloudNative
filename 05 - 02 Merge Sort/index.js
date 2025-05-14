@@ -253,3 +253,43 @@ function mergeSort(arr, start, end) {
 //? so:
 //* f(n) = n * log(n) + 1
 //* f(n) = o(n log n) as n=> infinity
+
+//*=====================================================================
+
+//& Recommendation about merge sort
+
+//* recommended to use merge sort with linked list
+//* because it doesn't need extra space for merging process
+
+//* but array needs extra space for the temporary array
+
+//*=====================================================================
+//& Title: Merge Sort Time Complexity Explanation
+
+//? Note: "Order" here describes how the running time of merge sort grows
+//? with the size of the input (n).
+
+//* Key Concepts:
+//! 1. Divide:
+//*    - The algorithm splits the array into two halves recursively.
+//*    - The split happens until subarrays of size 1 are reached.
+//*    - The number of splits is roughly log₂(n).
+//*
+//! 2. Conquer:
+//*    - Each half is recursively sorted.
+//*
+//! 3. Merge:
+//*    - Merging two sorted halves takes linear time, O(n), at each level.
+//*
+//* Overall Time Complexity:
+//*    - With approximately log₂(n) levels and O(n) work per level,
+//*      the total time complexity is O(n log n).
+//*
+//^ Additional Details:
+//* - This complexity holds true for worst-case, average-case, and best-case.
+//* - Merge sort requires O(n) extra space for temporary arrays during merging.
+//*
+//* Example Calculation (for n = 16):
+//*   Levels = log₂(16) = 4
+//*   Work per level = 16 (all elements processed)
+//*   Total work ≈ 16 * 4 = 64 operations, i.e., O(n log n)
