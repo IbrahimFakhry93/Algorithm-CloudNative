@@ -205,3 +205,51 @@ function mergeSort(arr, start, end) {
 //* note: the start and end params in  merge(arr, start, midpoint, end)
 //* are different for each part (left and right)
 //* but midpoint is same
+
+//*=====================================================================================================
+
+//! 12 – Divide & Conquer – Merge Sort – Analysis
+
+//* Measure the case performance by:
+//* recursion-tree method
+//* Master theorem
+
+//* we will work with recursion-tree method
+
+//* how many processing will be done on number of elements to sort
+
+//* tree: because we apply division
+
+//* if the unsorted list or array is even
+//* the tree will be binary
+
+//* scientists suggest neglecting for an special case for his ree
+//* if the unsorted list or array is odd for example
+
+//? the main idea of recursion-tree method is:
+//* the number of elements (n) in unsorted list
+//* will result of many divisions levels
+
+//^================================
+
+//* k = last level
+//* k + 1 = count of levels = cl
+
+//* n = 4, k = 2 , cl = 3
+//* n = 8, k = 3,  cl = 4
+//* n = 16, k = 4, cl = 5
+
+//* note: when number of inputs (n) doubles, the count of levels increases by one
+
+//* k = log(n)  ==>    2 ** 3 = 8
+//* k is the power to result in 8
+
+//* every division level has number of operations (n) equals the number of processed inputs at this level
+
+//* look up the slide  and you will understand
+
+//* so number of operations of all levels combined  = n (number of operations at each level) * [log(n) + 1] (number of levels)
+
+//? so:
+//* f(n) = n * log(n) + 1
+//* f(n) = o(n log n) as n=> infinity
