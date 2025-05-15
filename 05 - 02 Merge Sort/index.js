@@ -245,8 +245,13 @@ function mergeSort(arr, start, end) {
 //* k is the power to result in 8
 
 //* every division level has number of operations (n) equals the number of processed inputs at this level
+//! number of operations means number pf calls to mergeSort fn
+
+//! 2 ^ log(n) = n calls to mergeSort
+//* k = log(n)
 
 //* look up the slide  and you will understand
+//^ and also look up merge.png very important
 
 //* so number of operations of all levels combined  = n (number of operations at each level) * [log(n) + 1] (number of levels)
 
@@ -293,3 +298,10 @@ function mergeSort(arr, start, end) {
 //*   Levels = log₂(16) = 4
 //*   Work per level = 16 (all elements processed)
 //*   Total work ≈ 16 * 4 = 64 operations, i.e., O(n log n)
+
+//*===============================================================
+
+//& Chatgpt tracing:
+
+//! open in bing with yasser account
+// https://copilot.microsoft.com/shares/DRUqMmVkFm84cSauAXpAM

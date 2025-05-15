@@ -2,7 +2,7 @@
 
 //* segregate means separation
 
-//* we will merge sort technique but we wil overcome the sort logic part
+//* we will merge sort technique but we will overcome the sort logic part
 
 //& pseudo code of merge sort:
 
@@ -71,3 +71,8 @@ const arr = [9, -3, 5, -2, -8, -6, 1, 3];
 const e = arr.length - 1;
 mergeAlgo(arr, 0, e);
 console.log(`After segregate: ${arr}`);
+
+//*=============================================================
+
+//^ open: test.js : merge sort solution
+//^ open: test2.js another simpler solution ith js methods
