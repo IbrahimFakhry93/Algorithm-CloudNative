@@ -7,7 +7,7 @@
 //* algorithm interacts with data inputs
 
 //* inputs can be numbers, texts, files, videos, images
-//* inputs data van be stream from a network, read information of desk, information of a system
+//* inputs data can be stream from a network, read information of desk, information of a system
 
 //& Modelling of an algorithm
 

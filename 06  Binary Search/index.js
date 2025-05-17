@@ -5,8 +5,7 @@
 
 //? Idea of binary search:
 
-//* to move sorted array indexes of start and end, and calculating the new mid until the key equals the value at the midpoint
-//* so when we return the mid index, we return the index key (key: search value)
+//* to move sorted array indexes of start and end until the key equals the value at the midpoint
 
 //* the key: is the value we search for
 
