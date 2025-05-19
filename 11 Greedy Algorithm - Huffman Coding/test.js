@@ -37,7 +37,7 @@
 
 // TODO  : This how it goes:
 //? create new node internal node's variables (top, left, right, newFreq)
-//~ loop over PQ until only all nodes merged into one node
+//~ loop over PQ until only all nodes merged into one node (ultimate node)
 //~ Dequeue min node and assign it to left_ref
 //~ Dequeue min node and assign it to right_ref
 //~ calculate newFreq of new Node: left.freq + right.freq
@@ -49,4 +49,14 @@
 //~ then enqueue this new node in the priority queue (minHeap) with its priority: newFreq
 //~ minHeap.Enqueue(top, newFreq)
 
-//* Assign on every branch zeros for right branch, ones for left branch
+//! Assign on every branch zeros for left branch, ones for right branch
+// TODO : Create generateCodes method with (params: ultimate node, empty string )
+// TODO : and call it recursively with subnodes left and right
+//* access the ultimate node by peek method (as in C#) without removing it from the queue
+
+//* create new HashTable for these codes named (codes)
+//* add the nodes that contain characters (data) not internal_char (empty string)
+
+//! test the code:
+//* take instance of class Huffman and pass msg ='internet'
+//* loop over
