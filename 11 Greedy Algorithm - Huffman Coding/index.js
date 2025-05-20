@@ -45,3 +45,40 @@
 //* we will use hash-table first to get characters frequencies
 //* instead of using sort algorithm (ex. merge sort) to sort the frequencies ascending
 //* we will use priority queue. because it's min heap by default (priority for less freq) as we need this in huffman application
+
+//& Title: generateCodes Function in Huffman Coding
+//? Note: This recursive function traverses a Huffman tree and assigns a binary code to each leaf node.
+//? Note: The binary code is built from the path taken from the root to the leaf.
+//* Parameters:
+//*    HeapNode node => The current node in the Huffman tree being processed.
+//*    string str    => The accumulated binary string (composed of "0"s and "1"s) representing the path from the root.
+//*
+//* How It Works:
+//*  1. If the current node is null, the function returns (base case for recursion).
+//*  2. If the current node is a leaf node (i.e., its data is not equal to internal_char), then we assign the
+//*     current binary string to this node's character in our codes mapping.
+//*  3. The function then recursively traverses the left child (appending "0" to the path) and the right child (appending "1" to the path).
+
+generateCodes(node, str);
+{
+  //? Note: Base case - if there is no node, stop the recursion.
+  if (node == null) {
+    return;
+  }
+
+  //? Note: Check if the current node is a leaf.
+  //? Explanation: internal_char is used as a placeholder for internal nodes.
+  //? A node with data not equal to internal_char is a leaf node and represents an actual character.
+  if (node.data != internal_char) {
+    //* Store the generated binary code in the codes mapping for this character.
+    codes[node.data] = str;
+  }
+
+  //? Note: Traverse the left subtree.
+  //? Explanation: Moving left adds "0" to the binary code.
+  generateCodes(node.left, str + "0");
+
+  //? Note: Traverse the right subtree.
+  //? Explanation: Moving right adds "1" to the binary code.
+  generateCodes(node.right, str + "1");
+}
