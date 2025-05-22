@@ -32,6 +32,18 @@ function merge(arr, start, midpoint, end) {
   for (let j = 0; j < right_length; j++) {
     right_arr[j] = arr[midpoint + 1 + j];
   }
+  console.log("                                                    ");
+  console.log(`s: ${start}, m: ${midpoint}, e:${end}`);
+  console.log("                                                    ");
+
+  console.log("original_arr before merge: ");
+  console.log(arr);
+  console.log("                                                    ");
+  console.log(`left_arr:`);
+  console.log(left_arr);
+  console.log("                                                    ");
+  console.log(`right_arr:`);
+  console.log(right_arr);
 
   //* while loop to compare all items in the array and sort in the original array
   let i = 0,
@@ -78,9 +90,14 @@ function merge(arr, start, midpoint, end) {
     j++;
     k++;
   }
+
+  console.log("                                                    ");
+  console.log("original_arr after merge: ");
+  console.log(arr);
+  console.log("                                                    ");
+  console.log("===============================================");
 }
 
 const arr = [9, 5, 1, 4];
-console.log(arr);
 mergeSort(arr, 0, arr.length - 1);
-console.log(`After sort: ${arr}`);
+// console.log(`After sort: ${arr}`);

@@ -24,6 +24,11 @@ mergeCall(items, 0, items.length - 1);
 console.log("Sorted items:", items);
 console.log("==============================");
 
+// Use JavaScript built-in sort method:
+//* Sort items in descending order by ratio using built-in sort
+items.sort((a, b) => b.ratio - a.ratio);
+
+console.log("Sorted items:", items);
 const max_capacity = 12;
 const bag = new Knapsack(max_capacity);
 
@@ -33,6 +38,8 @@ while (bag.current_capacity < bag.max_capacity) {
   j++;
 }
 
+//^ open: console output.jpg
+//* to see the inputs
 console.log(bag.items);
-console.log(bag.current_capacity);
-console.log(bag.total_profit);
+console.log("Bag Current Capacity:", bag.current_capacity);
+console.log("Bag Total Profit:", bag.total_profit);
