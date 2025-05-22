@@ -1,4 +1,6 @@
 {
+
+   "type": "module", 
   "dependencies": {
     "datastructures-js": "^13.0.0"
   }

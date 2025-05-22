@@ -1,4 +1,4 @@
-function mergeCall(arr, s, e) {
+export function mergeCall(arr, s, e) {
   if (e == s) return;
 
   const m = Math.floor((e + s) / 2);
@@ -7,6 +7,8 @@ function mergeCall(arr, s, e) {
   mergeCall(arr, m + 1, e);
   merge(arr, s, m, e);
 }
+
+//*========================================
 
 function merge(arr, s, m, e) {
   let left_arr = [];
@@ -29,7 +31,7 @@ function merge(arr, s, m, e) {
   let k = s;
 
   while (i < left_length && j < right_length) {
-    if (left_arr[i] <= right_arr[j]) {
+    if (left_arr[i].ratio >= right_arr[j].ratio) {
       arr[k] = left_arr[i];
       i++;
     } else {
@@ -53,8 +55,8 @@ function merge(arr, s, m, e) {
   //   console.log(arr);
 }
 
-const items = [9, 3, 2, 1];
-mergeCall(items, 0, items.length - 1);
-//  if (left_arr[i].ratio >= right_arr[j].ratio)
+// const items = [9, 3, 2, 1];
+// mergeCall(items, 0, items.length - 1);
+// //  if (left_arr[i].ratio >= right_arr[j].ratio)
 
-console.log(items);
+// console.log(items);

@@ -1,4 +1,4 @@
-class Item {
+export class Item {
   constructor(name, profit, weight) {
     this.name = name;
     this.profit = profit;
@@ -7,7 +7,7 @@ class Item {
   }
 }
 
-class Knapsack {
+export class Knapsack {
   constructor(max_capacity) {
     this.max_capacity = max_capacity;
     this.current_capacity = 0;
@@ -19,7 +19,7 @@ class Knapsack {
     if (newItem.weight > this.max_capacity - this.current_capacity) {
       const diff = this.max_capacity - this.current_capacity;
       newItem.weight = diff;
-      newItem.profit = ratio * newItem.weight;
+      newItem.profit = newItem.ratio * newItem.weight;
     }
 
     this.items.push(newItem);
