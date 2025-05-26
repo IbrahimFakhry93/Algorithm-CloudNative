@@ -34,6 +34,8 @@ inMST[0] = true; // Start with the first vertex
 const mstEdges = [];
 
 //* start while loop:
+//^ mst edges = v -1
+//* so as long as stEdges.length < v - 1, the minimum spanning tree still not completely created
 while (mstEdges.length < v - 1) {
   //* define required temp variables
   let min_weight = Number.MAX_SAFE_INTEGER;
