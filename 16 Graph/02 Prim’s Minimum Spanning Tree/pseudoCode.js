@@ -35,11 +35,14 @@ const mstEdges = [];
 
 //* start while loop:
 //^ mst edges = v -1
-//* so as long as stEdges.length < v - 1, the minimum spanning tree still not completely created
+//* so as long as mstEdges.length < v - 1, the minimum spanning tree still not completely created
 while (mstEdges.length < v - 1) {
   //* define required temp variables
   let min_weight = Number.MAX_SAFE_INTEGER;
 
+  //* temp var: to store temp coordination or position (i,j) that fulfill the min condition
+  //* it will be changed over iterations depend on comparison with min_weight
+  //* that's way it's it's temporary
   let temp_from = -1;
   let temp_to = -1;
 
@@ -53,7 +56,7 @@ while (mstEdges.length < v - 1) {
       for (let j = 0; j < v; j++) {
         //* graph[i, j] > 0 : means i refers to j, because in case i refers to j, its case is 1
         if (!inMST[j] && graph[i][j] > 0 && graph[i][j] < min_weight) {
-          min_weight = graph[i][j];
+          min_weight = graph[i][j]; //* note graph[i,j] is a weight
 
           temp_from = i;
           temp_to = j;
