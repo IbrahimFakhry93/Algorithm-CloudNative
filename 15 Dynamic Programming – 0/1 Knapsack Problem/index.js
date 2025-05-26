@@ -7,7 +7,7 @@
 //^ the difference approach here in 0 / 1 knapsack using dyn prog
 
 //* that we will try or loop over all possible solutions (stages)
-//* all possible weights (stage weights) till max weight
-//* so we can achieve max profit below max weight
+//* meaning all possible weights (stage weights) till max weight
+//* so we may achieve max profit below max weight
 
 //* W_max: max weight: 8 kg
