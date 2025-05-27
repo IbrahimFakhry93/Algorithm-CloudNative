@@ -23,3 +23,5 @@
 //^ note:
 //* this technique is greedy, because we didn't loop over all the edge then choose the minimum
 //* we choose the minimum edge at each comparison between two nodes along the path
+
+// The algorithm’s emphasis on incremental, greedy, and cost-minimizing decisions

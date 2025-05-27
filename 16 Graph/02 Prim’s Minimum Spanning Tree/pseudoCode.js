@@ -28,13 +28,15 @@ const graph = [
 const v = graph.length; //* graph length  (number of vertices === labels length)
 // Array to mark vertices that are included in the MST
 const inMST = new Array(v).fill(false);
+
+// add first arbitrary vertex to the solution
 inMST[0] = true; // Start with the first vertex
 
 // Array to store the MST edges
 const mstEdges = [];
 
 //* start while loop:
-//^ mst edges = v -1
+//^ mst edges = v - 1
 //* so as long as mstEdges.length < v - 1, the minimum spanning tree still not completely created
 while (mstEdges.length < v - 1) {
   //* define required temp variables
