@@ -59,6 +59,24 @@ class Graph {
     this.resetVertices();
   }
 
+  DFS() {
+    this.DFSRecursion(this.vertices[0]);
+    this.resetVertices();
+  }
+
+  DFSRecursion(currentVertex) {
+    currentVertex.visited = true;
+
+    let destinations = currentVertex.vertexLinks;
+
+    for (let i = 0; i < destinations.length; i++) {
+      if (!destinations[i].target.visited) {
+        console.log(`${currentVertex.name} => ${destinations[i].target.name}`);
+        this.DFSRecursion(destinations[i].target);
+      }
+    }
+  }
+
   resetVertices() {
     this.vertices.map((vertex) => (vertex.visited = false));
   }
@@ -75,6 +93,5 @@ g.addEdges(5, 2, 3, 4, 7);
 g.addEdges(6, 7, 8);
 g.addEdges(7, 5, 6, 8);
 g.addEdges(8, 6, 7);
-g.BFS();
-
+g.DFS();
 //* node code.cjs
