@@ -1,3 +1,17 @@
 //! 30 – Graph – Dijkstra’s Shortest Path – Algorithm – Code
 
 //* daikstra
+
+//! important
+//* assign the weight of the starting vertex to be zero
+//* total le
+
+//? comparison step as was in stagecoach:
+//* seek the minimum distance or length (min weight)
+
+//* daikstra applies greedy technique
+//* at current step we compare to get the minimum weight or distance
+
+//* Dijkstra's algorithm follows a greedy approach.
+//* At each step, it selects the vertex with the smallest known distance,
+//* then updates the shortest paths to its neighboring vertices accordingly.
