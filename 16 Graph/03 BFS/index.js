@@ -2,11 +2,11 @@
 
 //* bfs: graph traversal algorithm
 
-//* we can use bfs to find unwieghted minimum spanning tree instead of using prim method
+//* we can use bfs to find unweighted minimum spanning tree instead of using prim method
 
 //* bfs or any traversal algorithm answers the question is there a route or path from certain node to another
 
-//* BFS is essentialy traversal algorithm but it can also be used to search for an edge or vertex
+//* BFS is essentially traversal algorithm but it can also be used to search for an edge or vertex
 
 //* breadth: level
 
@@ -27,7 +27,7 @@
 //* B and C are head of tree
 
 //& next levels
-//? b
+//? B
 //* Start from B
 //* move in both:
 //* B to E
