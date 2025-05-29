@@ -2,6 +2,12 @@
 
 //* daikstra
 
+//* Dijkstra’s Shortest Path is close to stagecoach problem in dynamic programming
+
+//? place ttotal lengths of all vertices as infinity
+//* it is like define Max_Integer_Number to compare with
+//* to get minimum at each step
+
 //! important
 //* assign the weight of the starting vertex to be zero
 //* total le
