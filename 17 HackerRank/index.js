@@ -246,7 +246,7 @@ const v = 4;
     }
   }
 
-  stairCase(4);
+  // stairCase(4);
 
   //! c++
 
@@ -288,5 +288,281 @@ const v = 4;
     }
   }
 
-  stairCase(4);
+  // stairCase(4);
+})();
+//*=============================================================================================================================
+
+//& Mini-Max Sum
+(function () {
+  //& My Solution
+
+  //! I solve right from the first time but I can't strace it in my mind
+  function miniMaxSum2(arr) {
+    // Write your code here
+
+    let max = Number.MIN_SAFE_INTEGER;
+    let min = Number.MAX_SAFE_INTEGER;
+
+    for (let i = 0; i < arr.length; i++) {
+      let sum = 0;
+      for (let j = 0; j < arr.length; j++) {
+        if (i === j) continue;
+
+        sum += arr[j];
+      }
+
+      if (sum > max) max = sum;
+      if (sum < min) min = sum;
+    }
+
+    console.log(min, max);
+  }
+
+  const arr = [1, 2, 3, 4, 5];
+
+  // miniMaxSum2(arr);
+})();
+
+//& Second Solution:
+//! I thought about it but I didn't do it firstly
+
+(function () {
+  function miniMaxSum(arr) {
+    // Write your code here
+
+    let max = Number.MIN_SAFE_INTEGER;
+    let min = Number.MAX_SAFE_INTEGER;
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+      if (arr[i] > max) max = arr[i];
+      if (arr[i] < min) min = arr[i];
+    }
+
+    const maxSum = sum - min;
+    const minSum = sum - max;
+
+    // console.log(minSum, maxSum);
+  }
+
+  const arr = [1, 2, 3, 4, 5];
+
+  // miniMaxSum(arr);
+})();
+
+//! this problem  Mini-Max Sum is not Greedy Algorithm approach:
+
+//& Title: MinMax Sum Problem & Greedy Algorithm Discussion
+//? Note: This snippet outlines the logic behind calculating the minimum and maximum sums
+//? by summing exactly four out of five integers, along with a discussion on why this is not a greedy algorithm.
+
+//* Problem Overview:
+//* Given five positive integers, we need to determine:
+//*   - The minimum sum obtainable by summing exactly four integers.
+//*   - The maximum sum obtainable by summing exactly four integers.
+//*
+//* Mathematical Insight:
+//*   - Total Sum = a + b + c + d + e
+//*   - Minimum Sum = Total Sum - (Maximum element)
+//*   - Maximum Sum = Total Sum - (Minimum element)
+//*
+//* Discussion on Greedy Algorithm:
+//*   - Greedy algorithms build a solution iteratively by making locally optimal choices.
+//*   - In this problem, we are not making iterative "choices" but rather using global information
+//*     (the total sum and the extreme values) to calculate the result in one or two passes.
+//*   - While "discarding" the largest or smallest element might seem like a greedy step,
+//*     it is actually a direct computation based on mathematical properties, not an iterative strategy.
+
+//* Pseudocode Representation:
+/*
+   Input: five positive integers stored in an array "arr"
+    totalSum = sum(arr)         // Calculate the total sum of all elements.
+    minElement = min(arr)       // Find the minimum element in the array.
+    maxElement = max(arr)       // Find the maximum element in the array.
+
+    minSum = totalSum - maxElement  // Omitting the maximum provides the minimum sum.
+    maxSum = totalSum - minElement  // Omitting the minimum provides the maximum sum.
+
+   Output:
+    Print minSum and maxSum (space-separated).
+*/
+
+//* Conclusion:
+//* The solution relies on overall data properties rather than greedy, step-by-step decision making.
+//* It is efficient because it computes required values in a constant number of passes over the array.
+
+//*=============================================================================================================================
+
+//& Birthday Cake Candles
+
+// You are in charge of the cake for a child's birthday. It will have one candle for each year of their total age.
+// They will only be able to blow out the tallest of the candles.
+//  Your task is to count how many candles are the tallest.
+
+function birthdayCakeCandles(candles) {
+  // Write your code here
+  let max = Number.MIN_SAFE_INTEGER;
+  for (let i = 0; i < candles.length; i++) {
+    if (candles[i] > max) max = candles[i];
+  }
+  let count = 0;
+  console.log(max);
+  for (let i = 0; i < candles.length; i++) {
+    if (candles[i] === max) count++;
+  }
+
+  return count;
+}
+
+const candles = [3, 2, 1, 3];
+
+// console.log(birthdayCakeCandles(candles));
+
+//& Title: Birthday Cake Candles - Efficiency and Time Complexity Discussion
+//? Note: This snippet outlines the time complexity of the provided solution and discusses a potential one-pass optimization.
+
+//^ Explanation:
+//* The given solution uses two loops:
+//*   1. The first loop finds the maximum value in the array in O(n) time.
+//*   2. The second loop counts how many times this maximum value appears, also in O(n) time.
+//*
+//! Therefore, the overall time complexity is O(n) + O(n) = O(n).
+//*
+//* While you could combine these two loops into one (tracking both the maximum and its count simultaneously),
+//* the asymptotic time complexity would remain O(n). The benefit of a single pass would be a lower constant factor,
+//* but it won’t change the worst-case performance.
+
+//* Alternative Single-Pass Approach (as a commentary, not a required solution):
+//~ combine both loops into a single loop (by tracking the maximum value and its count simultaneously)
+//! mentor
+/*
+function birthdayCakeCandles(candles) {
+    let maxHeight = 0;
+    let count = 0;
+    for (const height of candles) {
+        if (height > maxHeight) {
+            maxHeight = height;
+           ! count = 1;
+        } else if (height === maxHeight) {
+           ! count++;
+        }
+    }
+    return count;
+}
+*/
+
+//? Summary:
+//* - The current solution is O(n) in time complexity.
+//* - Combining loops might reduce the number of iterations in practice, but the asymptotic complexity remains O(n).
+//*=============================================================================================================================
+
+//& Time Conversion
+(function () {
+  function timeConversion(s) {
+    // Write your code here
+    let match = "";
+    const reg = /^(?<hours>\d{2}):\d{2}:\d{2}(?<time>PM|AM)$/g;
+    while ((match = reg.exec(s))) {
+      console.log(match.groups);
+    }
+
+    // const lastTwo = s.match(/(..)$/)[1];
+    // cl
+    // if (lastTwo === "PM")
+
+    const time = s.slice(-2);
+    const hours = s.slice(0, 2);
+    console.log(time, hours);
+
+    const arr = s.split(":");
+    // console.log(arr);
+
+    // console.log(arr[2].match(/AM/));
+
+    if (arr[0] === "12" && arr[2].match(/AM/)) {
+      arr[0] = +arr[0] - 12 + "0";
+      arr[2] = arr[2].slice(0, -2);
+      console.log(arr.join(":"));
+    }
+    if (arr[0] < "12" && arr[2].match(/PM/)) {
+      arr[0] = +arr[0] + 12;
+      arr[2] = arr[2].slice(0, -2);
+      console.log(arr.join(":"));
+    }
+  }
+
+  const s = "07:05:45PM";
+  const s2 = "12:01:00AM";
+  // timeConversion(s2);
+  // timeConversion(s);
+})();
+
+(function () {
+  function timeConversion2(s) {
+    const arr = s.split(":");
+    if (arr[0] === "12" && arr[2].match(/AM|PM/)) {
+      arr[0] = "00";
+      arr[2] = arr[2].slice(0, -2);
+      console.log(arr.join(":"));
+      s = arr.join(":");
+      return s;
+    }
+    if (arr[0] < "12" && arr[2].match(/PM/)) {
+      arr[0] = +arr[0] + 12;
+      arr[2] = arr[2].slice(0, -2);
+      console.log(arr.join(":"));
+      s = arr.join(":");
+      return s;
+    }
+  }
+
+  const s = "07:05:45PM";
+  const s2 = "12:01:00PM";
+  timeConversion2(s2);
+  timeConversion2(s);
+})();
+
+//*============================
+//& chatgpt correct
+(function () {
+  function timeConversion2(s) {
+    // Split the time string into components
+    const arr = s.split(":");
+    // Extract the period (AM or PM)
+    const period = arr[2].slice(-2);
+    // Remove the period from the seconds
+    arr[2] = arr[2].slice(0, -2);
+
+    // Conversion for AM
+    if (period === "AM") {
+      if (arr[0] === "12") {
+        // 12 AM should be converted to 00
+        arr[0] = "00";
+      }
+      // For other AM hours, keep the hour unchanged
+    }
+    // Conversion for PM
+    else if (period === "PM") {
+      if (arr[0] !== "12") {
+        // For PM times other than 12 PM, add 12 to convert
+        arr[0] = String(Number(arr[0]) + 12);
+      }
+    }
+
+    // Reassemble the converted time string
+    const result = arr.join(":");
+    console.log(result);
+    return result;
+  }
+
+  // Test cases
+  const s = "07:05:45PM"; // should become "19:05:45"
+  const s2 = "12:01:00PM"; // should remain "12:01:00"
+  const s3 = "12:00:00AM"; // should become "00:00:00"
+  const s4 = "01:00:00AM"; // should remain "01:00:00"
+
+  timeConversion2(s);
+  timeConversion2(s2);
+  timeConversion2(s3);
+  timeConversion2(s4);
 })();

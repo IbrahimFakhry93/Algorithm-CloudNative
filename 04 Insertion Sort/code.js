@@ -44,26 +44,28 @@
   //         It uses a descriptive function name, clear loop conditions, proper initialization,
   //         and inline commentary for study and later reference.
   //
+
   //* Function: insertionSort(arr)
   //* Purpose: Sorts an array, arr, using the Insertion Sort algorithm.
+
   function insertionSort(arr) {
-    // Begin the algorithm
-    //* Outer Loop: Iterate from the 2nd element (index 1) through the array.
+    //~ Begin the algorithm
+    //^ Outer Loop: Iterate from the 2nd element (index 1) through the array.
     // for i = 1 to arr.length - 1 do
     //     key = arr[i]          // Set key as the current element to be inserted into the sorted portion.
     // j = i - 1             // Initialize j to the previous index, marking the last element in the sorted section.
-    //* Inner Loop: Shift the sorted elements to the right.
+    //^ Inner Loop: Shift the sorted elements to the right.
     //* While there are elements in the sorted subarray and the current element is greater than key,
     //* move each element one position to the right.
-    // while j >= 0 and arr[j] > key do
+    //! while j >= 0 and arr[j] > key do
     //     arr[j + 1] = arr[j]  // Shift element rightward.
     //     j = j - 1            // Decrement j to continue checking previous elements.
-    // end while
-    //* Insert key into the correct spot.
+    //! end while
+    //^ Insert key into the correct spot.
     //     arr[j + 1] = key
     // end for
-    // End the algorithm
-    // return arr
+    //! End the algorithm
+    //! return arr
   }
 
   //?Note: Example usage:
