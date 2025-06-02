@@ -13,7 +13,7 @@
 
 //* loop on both of the arrays together
 //* there is no nested loop as was in insertion sort, nested loop takes a lot of time
-//* then compare first element in the right with the first element in the left.
+//* so in merge sort we compare first element in the right with the first element in the left.
 //* the smaller element will be pushed to the original array
 
 //* and then loop on the array that contained the smaller pushed element, and fix the loop in the another array
@@ -30,9 +30,9 @@
 //* Define fn_mergerSort(arr,start,end);
 //* fn inputs: arr[], start and end index inside fn_mergeSort()
 //* if (start === end) break the recursion
-//* calculate the midpoint = (end+start) / 2
+//* calculate the midpoint = (end + start) / 2
 //* call the fn_mergeSort() recursively twice with different parameters to split arr[]
-//* call merge fn to split the two arrays
+//* call merge fn to split the two arrays and then merge them into original array
 
 //^================
 
@@ -40,7 +40,7 @@
 
 //* Define fn_merge(arr,start,midpoint,end);
 //* fn inputs: the arr[], start, midpoint and end index
-//* create new arras for each side
+//* create new arrays for each side
 //* while loop to compare all items in the array and sort in the original array
 //* move remain items in each array to the original array as they are
 //* because at this point they are certainly sorted
@@ -72,12 +72,12 @@ function merge(arr, start, midpoint, end) {
   const left_arr = [];
   const left_length = midpoint - start + 1;
   for (let i = 0; i < left_length; i++) {
-    left_arr[i] = arr[i + start];
+    left_arr[i] = arr[i + start]; //^ why this formula, look down
   }
   const right_arr = [];
   const right_length = end - midpoint;
   for (let j = 0; j < right_length; j++) {
-    right_arr[j] = arr[midpoint + 1 + j];
+    right_arr[j] = arr[midpoint + 1 + j]; //^ why this formula, look down
   }
 
   console.log(`s: ${s}, m: ${m}, e:${e}`);
@@ -149,6 +149,22 @@ console.log(arr);
 mergeSort(arr, 0, arr.length - 1);
 console.log(`After sort: ${arr}`);
 
+//! why left_arr[i] = arr[i + start] and right_arr[j] = arr[midpoint + 1 + j] ?
+//^ Consider this explanation: why
+
+//* The left subarray should copy elements from the original array starting at index "start". (some cases start != 0)
+//* In left_arr, index 0 should correspond to arr[start], index 1 to arr[start + 1], etc.
+//* So, for a given index i in left_arr, you need to access arr[i + start].
+//* That is why you write:
+left_arr[i] = arr[i + start];
+
+//* The right subarray should copy elements starting from one position after the midpoint.
+//* In right_arr, index 0 should correspond to arr[midpoint + 1], index 1 to arr[midpoint + 2], etc.
+//* So, for a given index j in right_arr, you access arr[midpoint + 1 + j].
+//* That is why you write: right_arr[j] = arr[midpoint + 1 + j];
+
+right_arr[j] = arr[midpoint + 1 + j]; // "midpoint + 1 + j" maps right_arr index to the actual arr index
+
 //! mentor
 
 /*
@@ -166,6 +182,29 @@ console.log(`After sort: ${arr}`);
   }
 
 */
+
+// Copy the left subarray: starting at index 'start' and ending at 'midpoint'
+// Map each i (from 0 to left_length-1) to the actual index (start + i) in the original array.
+const left_arr = [];
+const left_length = midpoint - start + 1;
+for (let i = 0; i < left_length; i++) {
+  left_arr[i] = arr[i + start]; // left_arr[i] gets the element at arr[start + i]
+}
+
+// Copy the right subarray: starting just after 'midpoint' (i.e., midpoint + 1) up to 'end'
+// Map each j (from 0 to right_length-1) to the actual index (midpoint + 1 + j) in the original array.
+const right_arr = [];
+const right_length = end - midpoint;
+for (let j = 0; j < right_length; j++) {
+  right_arr[j] = arr[midpoint + 1 + j]; // right_arr[j] gets the element at arr[midpoint + 1 + j]
+}
+
+// For the left subarray, left_arr[i] gets the element at index "start + i" from arr,
+// because the left subarray begins at index 'start' in the original array.
+left_arr[i] = arr[i + start]; // "i + start" maps left_arr index to the actual arr index
+
+// For the right subarray, right_arr[j] gets the element at index "midpoint + 1 + j" from arr,
+// because the right subarray starts immediately after the midpoint (i.e., at index midpoint + 1).
 
 //& important notes about merge sort:
 
@@ -219,7 +258,9 @@ function mergeSort(arr, start, end) {
 //* regular call: merge fn for right part
 //~    merge(arr, start, midpoint, end);
 
-//* note: the start and end params in  merge(arr, start, midpoint, end)
+//! chatgpt
+//^ note:
+//*  the start and end params in  merge(arr, start, midpoint, end)
 //* are different for each part (left and right)
 //* but midpoint is same
 
@@ -227,30 +268,36 @@ function mergeSort(arr, start, end) {
 
 //! 12 – Divide & Conquer – Merge Sort – Analysis
 
-//* Measure the case performance by:
+//^ Measure the case performance by:
 //* recursion-tree method
 //* Master theorem
 
 //* we will work with recursion-tree method
 
-//* how many processing will be done on number of elements to sort
+//* how many processing will be done on number of elements to sort (n)
 
-//* tree: because we apply division
+//* we will illustrate by tree: because we apply division
 
+//^ note:
 //* if the unsorted list or array is even
 //* the tree will be binary
 
-//* scientists suggest neglecting for an special case for his ree
-//* if the unsorted list or array is odd for example
+//* scientists suggest neglecting for an special case for this tree
+//* if the unsorted list or array is odd for example (special case)
 
 //? the main idea of recursion-tree method is:
+//* how many division levels will result when sort number of elements
+
 //* the number of elements (n) in unsorted list
 //* will result of many divisions levels
+
+//* if n = 4, there will be 3 division levels, so I will have 12 operations
 
 //^================================
 
 //* k = last level
-//* k + 1 = count of levels = cl
+//* k + 1 = count of levels = cl   (because k starts at 0) zero indexed
+//^ look up the slide
 
 //* n = 4, k = 2 , cl = 3
 //* n = 8, k = 3,  cl = 4
@@ -258,11 +305,17 @@ function mergeSort(arr, start, end) {
 
 //* note: when number of inputs (n) doubles, the count of levels increases by one
 
+//^ scientists found the following mathematical relation between n and k
+//! mathematical proof of this formula is out of scope of software career
 //* k = log(n)  ==>    2 ** 3 = 8
 //* k is the power to result in 8
 
+//^ note:
+//* log in software is base 2 but in mathematics is base 10
+//^ open: log in software vs log in mathematics.pdf
+
 //* every division level has number of operations (n) equals the number of processed inputs at this level
-//! number of operations means number pf calls to mergeSort fn
+//! number of operations means number of calls to mergeSort fn
 
 //! 2 ^ log(n) = n calls to mergeSort
 //* k = log(n)
@@ -274,7 +327,7 @@ function mergeSort(arr, start, end) {
 
 //? so:
 //* f(n) = n * log(n) + 1
-//* f(n) = o(n log n) as n=> infinity
+//* f(n) = o(n log n) as n=> infinity (neglect plus 1)
 
 //*=====================================================================
 
@@ -288,10 +341,11 @@ function mergeSort(arr, start, end) {
 //*=====================================================================
 //& Title: Merge Sort Time Complexity Explanation
 
-//? Note: "Order" here describes how the running time of merge sort grows
-//? with the size of the input (n).
+//? Note:
+//* "Order" here describes how the running time of merge sort grows
+//*  with the size of the input (n).
 
-//* Key Concepts:
+//^ Key Concepts:
 //! 1. Divide:
 //*    - The algorithm splits the array into two halves recursively.
 //*    - The split happens until subarrays of size 1 are reached.
@@ -303,7 +357,7 @@ function mergeSort(arr, start, end) {
 //! 3. Merge:
 //*    - Merging two sorted halves takes linear time, O(n), at each level.
 //*
-//* Overall Time Complexity:
+//^ Overall Time Complexity:
 //*    - With approximately log₂(n) levels and O(n) work per level,
 //*      the total time complexity is O(n log n).
 //*
@@ -311,7 +365,7 @@ function mergeSort(arr, start, end) {
 //* - This complexity holds true for worst-case, average-case, and best-case.
 //* - Merge sort requires O(n) extra space for temporary arrays during merging.
 //*
-//* Example Calculation (for n = 16):
+//^ Example Calculation (for n = 16):
 //*   Levels = log₂(16) = 4
 //*   Work per level = 16 (all elements processed)
 //*   Total work ≈ 16 * 4 = 64 operations, i.e., O(n log n)
