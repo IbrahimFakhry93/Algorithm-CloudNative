@@ -1,12 +1,16 @@
 //! 10 – Recursion
 
 //& Code Segment
+//* aim of this part: when code run, how it stores in memory
+
 //* program memory structure (code segment) splits into:
 //* code section: binary form of compiled code
 //* stack: store primitive data types and pointer of reference data types
 //* functions store its variables including parameters in the stack frame in the stack
 
 //* heap: store reference data types
+
+//! open: pointer.jpg
 
 //*================================
 
