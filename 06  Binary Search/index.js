@@ -48,8 +48,8 @@ function binarySearchRec(key, s, e, arr) {
   let m = Math.floor((s + e) / 2);
   if (key === arr[m]) return m;
 
-  if (key > arr[m]) binarySearchRec(key, m + 1, e, ...arr);
-  if (key < arr[m]) binarySearchRec(key, s, m - 1, ...arr);
+  if (key > arr[m]) binarySearchRec(key, m + 1, e, arr);
+  if (key < arr[m]) binarySearchRec(key, s, m - 1, arr);
   else return -1;
 }
 

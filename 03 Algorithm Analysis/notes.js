@@ -1,6 +1,6 @@
 //! 05 – Algorithms Analysis – Introduction
 
-//* algorithm analysis measures approximately code efficiency or performance, according to infinite number of inputs
+//* algorithm analysis measures ((approximately)) code efficiency or performance, according to infinite number of inputs
 
 //* code efficiency means time that the code will take to be executed
 

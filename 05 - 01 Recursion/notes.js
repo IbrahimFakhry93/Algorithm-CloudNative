@@ -20,3 +20,7 @@
 //* It relies on a base case to stop the recursive calls and prevents infinite recursion.
 //* when the function calls itself, it calls itself with parameters approach to base condition
 //! to avoid code exception (error) which is called stack overflow
+
+//? Key Considerations:
+//* - Always define a clear base case to avoid infinite recursion.
+//* - Monitor the recursion depth to prevent potential stack overflow issues, considering iterative alternatives when needed.

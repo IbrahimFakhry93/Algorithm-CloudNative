@@ -6,7 +6,7 @@
 
 //* start a loop with counter i
 //* starting by the second element in the data (i = 1 )
-//~ his step above, divides the array into sorted list on the left and unsorted list on the right
+//~ this step above, divides the array into sorted list on the left and unsorted list on the right
 //~ why on the left is sorted?
 //~ because the list is only one element
 //* because in code, it's zero index
@@ -92,7 +92,7 @@ function insertionSort(...arr) {
       else break;
     }
 
-    arr[j + 1] = key;
+    arr[j + 1] = key; //! mentor: i can't remember the benefit of this line
   }
 
   console.log(arr);
@@ -122,3 +122,8 @@ function insertionSort(...arr) {
   return arr;
 }
 insertionSort(9, 5, 1, 4); //* [9, 5, 4, 1]
+
+//^ note: the only difference between Ascending and Descending:
+//* is: the key - previous element comparison condition
+//* if(arr[j] > key): Ascending
+//* if(arr[j] < key): Descending

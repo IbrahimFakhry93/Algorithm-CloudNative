@@ -18,11 +18,17 @@
 
 //! pros and cons
 
-// The most important good part of Merge Sort is its O(N log N) performance guarantee, regardless of the original ordering of the input. That's it, there is no adversary test case that can make Merge Sort runs longer than O(N log N) for any array of N elements.
+// The most important good part of Merge Sort is its O(N log N) performance guarantee, regardless of the original ordering of the input.
+//  That's it, there is no adversary test case that can make Merge Sort runs longer than O(N log N) for any array of N elements.
 
-// Merge Sort is therefore very suitable to sort extremely large number of inputs as O(N log N) grows much slower than the O(N2) sorting algorithms that we have discussed earlier.
+// Merge Sort is therefore very suitable to sort extremely large number of inputs
+// as O(N log N) grows much slower than the O(N2) sorting algorithms that we have discussed earlier.
 
-// There are however, several not-so-good parts of Merge Sort. First, it is actually not easy to implement from scratch (but we don't have to). Second, it requires additional O(N) storage during merging operation, thus not really memory efficient and not in-place. Btw, if you are interested to see what have been done to address these (classic) Merge Sort not-so-good parts, you can read this.
+// There are however, several not-so-good parts of Merge Sort.
+// First, it is actually not easy to implement from scratch (but we don't have to).
+// Second, it requires additional O(N) storage during merging operation,
+// thus not really memory efficient and not in-place.
+// Btw, if you are interested to see what have been done to address these (classic) Merge Sort not-so-good parts, you can read this.
 
 // Merge Sort is also a stable sort algorithm.
 
