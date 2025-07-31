@@ -2,6 +2,10 @@
 
 //* interviews in good companies you can asked about one of the known algorithms
 
+//? time complexity for insertion sort:
+//* worst case: O(n ^ 2), if array is not sort at all
+//* best case: O(n), if array is already sorted or partially sorted
+
 //& Algorithm
 
 //* start a loop with counter i
@@ -16,9 +20,17 @@
 //* by applying a nested backward loop with counter j (j = i - 1 )
 //~ if n[j] > key then n[j+1] = n[j]  (shift by one)
 
-//* after finishing the loop of J when j value below 0
+//* after reaching the end of the inner backward loop of J when j value below 0
+//* which means that key is smaller than all elements of sorted portion that we loop over backwardly
+//* so the key should be placed at first index which equals 0
 //~ then n[j+1] = key, note j here is -1 so -1 + 1 = 0
 //~ so it's n[0] = key,
+
+//? Advantages of insertion sort over bubble sort:
+//* 1. The array is conceptually split into a sorted region (left) and an unsorted region (right).
+//* 2. Each new element is inserted into the sorted region by comparing it only with elements there.
+//* 3. Comparisons start from the end of the sorted region, by applying a nested backward loop with counter j (j = i - 1 )
+//*  so you never re-scan the entire array on each pass.
 
 //& Pseudo Code:
 
@@ -52,8 +64,8 @@
     //~ Begin the algorithm
     //^ Outer Loop: Iterate from the 2nd element (index 1) through the array.
     // for i = 1 to arr.length - 1 do
-    //     key = arr[i]          // Set key as the current element to be inserted into the sorted portion.
-    // j = i - 1             // Initialize j to the previous index, marking the last element in the sorted section.
+    //     key = arr[i]          //* Set key as the current element to be inserted into the sorted portion.
+    // j = i - 1             //* Initialize j to the previous index, marking the last element in the sorted section.
     //^ Inner Loop: Shift the sorted elements to the right.
     //* While there are elements in the sorted subarray and the current element is greater than key,
     //* move each element one position to the right.
@@ -91,7 +103,7 @@ function insertionSort(...arr) {
       if (arr[j] > key) arr[j + 1] = arr[j];
       else break;
     }
-
+    //^ Insert key into the correct spot.
     arr[j + 1] = key; //! mentor: i can't remember the benefit of this line
   }
 

@@ -8,6 +8,8 @@
 
 //* smallest time complexity for sorting an array is: n * log (n)
 
+//*===================================================================================================
+
 //^ note:
 //* time complexity for element insertion in an array is O(n) (if there will be shifting)
 //* like inserting in the middle of the array, or insert that needs shifting elmenets
@@ -27,6 +29,3 @@
 //~  list->insertAfter(list->find(2), 98);
 
 //*=============
-
-//! Selection Sort:
-//* time complexityL O(n^2)

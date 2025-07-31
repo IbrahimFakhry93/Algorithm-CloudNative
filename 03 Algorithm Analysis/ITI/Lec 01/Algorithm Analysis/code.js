@@ -1,3 +1,5 @@
+//* time complexity is more important than space complexity
+
 //^ open: 1.jpg in ITI folder
 
 //*==========================================

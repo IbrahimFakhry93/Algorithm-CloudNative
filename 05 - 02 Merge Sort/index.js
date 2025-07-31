@@ -303,12 +303,11 @@ function mergeSort(arr, start, end) {
 //* n = 8, k = 3,  cl = 4
 //* n = 16, k = 4, cl = 5
 
-//* note: when number of inputs (n) doubles, the count of levels increases by one
-
 //^ scientists found the following mathematical relation between n and k
-//! mathematical proof of this formula is out of scope of software career
+//* which is when number of inputs (n) doubles, the count of levels increases by one
 //* k = log(n)  ==>    2 ** 3 = 8
 //* k is the power to result in 8
+//! mathematical proof of this formula above is out of scope of software career
 
 //^ note:
 //* log in software is base 2 but in mathematics is base 10
@@ -318,7 +317,8 @@ function mergeSort(arr, start, end) {
 //! number of operations means number of calls to mergeSort fn
 
 //! 2 ^ log(n) = n calls to mergeSort
-//* k = log(n)
+//* k = log(n) = last level
+//* so: log(n) + 1 = no of levels
 
 //* look up the slide  and you will understand
 //^ and also look up merge.png very important
@@ -328,6 +328,15 @@ function mergeSort(arr, start, end) {
 //? so:
 //* f(n) = n * log(n) + 1
 //* f(n) = o(n log n) as n=> infinity (neglect plus 1)
+
+//! Time efficiency of merge sort over selection sort:
+//* if we have array of 10^6 elements : n = 10^6
+//* Selection sort eff: O(n2) === (10 ^ 6)2
+//* Merge sort eff: O(n * log(n)) = 20
+//* Selection eff / Merge eff = (10 ^ 6)^2 / 10^6 log(10 ^ 6) = 10^6 / 20 = 50000
+
+//* So enhancement of performance of merge sort is 50000 better than selection sort
+//* so no compiler or processor can achieve better than this enhancement
 
 //*=====================================================================
 
