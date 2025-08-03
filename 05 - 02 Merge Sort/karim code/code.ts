@@ -27,6 +27,43 @@
 //* Similarly, merge the second half [3, 9, 10, 82].
 //* Finally, merge the two sorted halves to form [3, 9, 10, 27, 38, 43, 82].
 
+// (Keep only one implementation of mergeSort and merge. If you have another duplicate elsewhere in the file, remove it.)
+// The following is the correct, single implementation:
+
+function mergeSort2(arr: number[]): number[] {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const mid = Math.floor(arr.length / 2);
+  const left = mergeSort2(arr.slice(0, mid));
+  const right = mergeSort2(arr.slice(mid));
+
+  return merge1(left, right);
+}
+
+function merge1(left: number[], right: number[]): number[] {
+  let result: number[] = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  return result.concat(left.slice(leftIndex), right.slice(rightIndex));
+}
+
+// Example usage
+const numbers = [38, 27, 43, 3, 9, 82, 10];
+console.log(mergeSort2(numbers)); // Output: [3, 9, 10, 27, 38, 43, 82]
+
 //* This implementation divides the array into smaller subarrays, recursively sorts them,
 //* and then merges the sorted subarrays.
 //* The merge function compares elements from the left and right subarrays,
