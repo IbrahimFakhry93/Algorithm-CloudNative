@@ -38,38 +38,46 @@ function merge(arr, s, m, e) {
   while (i < left_length) {
     if (left_arr[i] < 0) {
       arr[k] = left_arr[i];
+      k++;
     }
 
     i++;
-    k++;
   }
   while (j < right_length) {
     if (right_arr[j] < 0) {
       arr[k] = right_arr[j];
+      k++;
     }
 
     j++;
-    k++;
   }
-
+  i = 0;
+  j = 0;
   while (left_length > i) {
     //^ note: no need to compare again
     //* because at this point they are certainly sorted
-    arr[k] = left_arr[i]; //* k, i values are k++ and i++ from the last while loop above
+
+    if (left_arr[i] > 0) {
+      arr[k] = left_arr[i]; //* k, i values are k++ and i++ from the last while loop above
+
+      k++;
+    }
     i++;
-    k++;
   }
 
   while (right_length > j) {
-    arr[k] = right_arr[j];
+    if (right_arr[j] > 0) {
+      arr[k] = right_arr[j];
+      k++;
+    }
+
     j++;
-    k++;
   }
 }
 
 const arr = [9, -3, 5, -2, -8, -6, 1, 3];
 const e = arr.length - 1;
-mergeAlgo(arr, 0, e);
+segregate(arr, 0, e);
 console.log(`After segregate: ${arr}`);
 
 //*=============================================================

@@ -27,7 +27,7 @@ void segNeg(int *arr, int size, int s, int m, int e)
     int i = 0;
     int j = 0;
     int k = s;
-    int k2 = e;
+
     //! Logical Error in following
     //! while (i < leftArrSize)
     // {
@@ -72,96 +72,6 @@ void segNeg(int *arr, int size, int s, int m, int e)
         j++;
         k++;
     }
-    //*=============
-    //! Gemini Fix:
-    // Phase 1: Place all negative numbers from the left subarray using a while loop
-    while (i < leftArrSize)
-    {
-        if (leftArr[i] < 0)
-        {
-            arr[k++] = leftArr[i];
-        }
-        i++;
-    }
-
-    // Reset i for the next phase
-    i = 0;
-
-    // Place all negative numbers from the right subarray using a while loop
-    while (j < rightArrSize)
-    {
-        if (rightArr[j] < 0)
-        {
-            arr[k++] = rightArr[j];
-        }
-        j++;
-    }
-
-    // Reset j for the next phase
-    j = 0;
-
-    // Phase 2: Place all non-negative numbers from the left subarray using a while loop
-    while (i < leftArrSize)
-    {
-        if (leftArr[i] >= 0)
-        {
-            arr[k++] = leftArr[i];
-        }
-        i++;
-    }
-
-    // Place all non-negative numbers from the right subarray using a while loop
-    while (j < rightArrSize)
-    {
-        if (rightArr[j] >= 0)
-        {
-            arr[k++] = rightArr[j];
-        }
-        j++;
-    }
-
-    //*======================
-
-    //! Copilot:
-
-    int n = e - s + 1;
-    int *temp = new int[n];
-    int idx = 0;
-
-    // 1. Copy negatives from left half
-    for (int i = s; i <= m; ++i)
-    {
-        if (arr[i] < 0)
-            temp[idx++] = arr[i];
-    }
-    // 2. Copy negatives from right half
-    for (int i = m + 1; i <= e; ++i)
-    {
-        if (arr[i] < 0)
-            temp[idx++] = arr[i];
-    }
-    // 3. Copy non-negatives from left half
-    for (int i = s; i <= m; ++i)
-    {
-        if (arr[i] >= 0)
-            temp[idx++] = arr[i];
-    }
-    // 4. Copy non-negatives from right half
-    for (int i = m + 1; i <= e; ++i)
-    {
-        if (arr[i] >= 0)
-            temp[idx++] = arr[i];
-    }
-
-    // Write merged segment back into arr[s..e]
-    for (int i = 0; i < n; ++i)
-    {
-        arr[s + i] = temp[i];
-    }
-
-    delete[] temp;
-
-    //*=======================
 
     while (i < leftArrSize)
     {
