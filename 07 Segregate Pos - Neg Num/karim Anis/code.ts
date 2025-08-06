@@ -2,9 +2,13 @@
 //* The relative order of the elements is not necessarily preserved.
 //* This can be achieved in O(n) time complexity, where n is the number of elements in the array.
 //
-//* The approach involves: Iterating through the array and maintaining two sections: one for negative numbers and one for positive numbers.
-//* Using a partitioning technique (similar to the one used in the quicksort algorithm), we iterate through the array and swap elements in place, moving negative numbers to the front and positive numbers to the back.
-//
+
+//* The approach involves:
+// 1) Iterating through the array
+// 2) maintaining two sections: one for negative numbers and one for positive numbers.
+// 3)  Using a partitioning technique (similar to the one used in the quicksort algorithm),
+//*      we iterate through the array and swap elements in place, moving negative numbers to the front and positive numbers to the back.
+
 //* For example, given the array [12, -7, -5, 70, -3, 15]:
 //
 //* We start by scanning through the array. As we encounter -7, -5, and -3 (negative numbers), we move them to the left.
@@ -43,3 +47,42 @@ function segregatePositiveAndNegative(arr: number[]): number[] {
 //* It performs in-place swapping, so no extra space is used, making it efficient.
 //* The result is an array where all negative numbers are on the left side and positive numbers are on the right.
 //* The algorithm works in linear time O(n), where n is the number of elements in the array.
+
+/*
+
+? start
+
+[ 12, -7, -5, 70, -3, 15 ]
+ ↑                   ↑
+ L                   R
+
+
+? After Iteration 1 (skip both positives)
+
+[ 12, -7, -5, 70, -3, 15 ]
+     ↑             ↑
+     L             R
+? After Iteration 2 (skip two negatives)
+
+[ 12, -7, -5, 70, -3, 15 ]
+        ↑         ↑
+        L         R
+
+? After Iteration 3 (skip another negative)
+[ 12, -7, -5, 70, -3, 15 ]
+           ↑     ↑
+           L     R
+
+? Iteration 4 (swap out-of-place elements)
+
+[ 12, -7, -5, -3, 70, 15 ]
+              ↑   ↑
+              L   R
+?End (all negatives left, positives right)
+
+[ -7, -5, -3, 70, 12, 15 ]
+
+
+
+
+ */
