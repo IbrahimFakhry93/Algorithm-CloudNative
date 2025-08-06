@@ -38,6 +38,7 @@ function segregatePositiveAndNegative(arr: number[]): number[] {
   }
   return arr;
 }
+
 //
 //? Example usage
 //* const numbers = [12, -7, -5, 70, -3, 15];
@@ -48,8 +49,32 @@ function segregatePositiveAndNegative(arr: number[]): number[] {
 //* The result is an array where all negative numbers are on the left side and positive numbers are on the right.
 //* The algorithm works in linear time O(n), where n is the number of elements in the array.
 
-/*
+function segregateCorrectly(arr: number[]): number[] {
+  let left = 0;
+  let right = arr.length - 1;
 
+  while (left < right) {
+    // Move left pointer to find a non-negative number
+    while (left < right && arr[left] < 0) {
+      left++;
+    }
+    // Move right pointer to find a negative number
+    while (left < right && arr[right] >= 0) {
+      right--;
+    }
+
+    // If pointers haven't crossed, swap them
+    if (left < right) {
+      [arr[left], arr[right]] = [arr[right], arr[left]];
+      left++;
+      right--;
+    }
+  }
+  return arr;
+}
+
+/*
+! Monospace Pointer Diagram
 ? start
 
 [ 12, -7, -5, 70, -3, 15 ]
