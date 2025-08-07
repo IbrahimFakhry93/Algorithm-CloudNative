@@ -1,5 +1,7 @@
 //! 19 – Sorted Characters Frequencies – Algorithm – Code
 
+//* Frequencies are number of a character occurrence in a string (ex. Hello world)
+
 //^ check: test.js
 
 //* to calculate sorted Characters Frequencies
@@ -10,12 +12,11 @@
 
 //* array of length 127
 //* each index represents the code of the character in ASCII CODE
+//* ASCII code: decimal codes of 128 character (letters, numbers, special characters, punctuations)
 
-//* for ex: a in ascii is 97, so its index in the array is 97
+//* for ex: (a) in ASCII is 97, so its index in the array is 97
 
 //* if the char exists in the text, find its index which is the ASCII same decimal code of that char
-
-//* ASCII code: decimal codes of 128 character (letters, numbers, special characters, punctuations)
 
 class CharFreq {
   ASCIIMethod(msg) {
@@ -24,12 +25,14 @@ class CharFreq {
     const freq = new Array(127).fill(0);
     // console.log(freq);
 
+    //* loop to calculate frequencies
     for (let i = 0; i < msg.length; i++) {
-      let asciiCode = msg.charCodeAt(i);
+      let asciiCode = msg.charCodeAt(i); //* convert the current character to ASCII code
       //   console.log(asciiCode);
       freq[asciiCode]++;
     }
 
+    //* loop to print corresponding frequencies for each character
     for (let i = 0; i < freq.length; i++) {
       if (freq[i] > 0) {
         let char = String.fromCharCode(i);
@@ -38,8 +41,10 @@ class CharFreq {
     }
   }
 
-  //*=======================
+  //*=======================================
+  //! skip this part and go to next section down (Another task)
 
+  //& Calculate the frequencies by using HashTable
   HashTableMethod(str) {
     //* Map in JS is Built-In Alternatives of hash-table
     //* Map key: char
@@ -67,14 +72,26 @@ class CharFreq {
 
     // Alternatively, using for...of to convert the Map entries to an array
     const freqArr2 = [];
+
+    //^ check: for of loop and array destructing.pdf to trace the for of loop
+    //! with destructing
     for (const [key, value] of freq) {
       freqArr2.push([key, value]);
     }
     // console.log("For-Of Loop:", freqArr2);
+    // return freqArr2;
+
+    //! without destructing:
+    for (const entry of freq) {
+      const key = entry[0];
+      const value = entry[1];
+      freqArr2.push([key, value]);
+    }
 
     return freqArr;
   }
 
+  //& Sort Method according to Frequencies
   HashTableSort(arr, s, e) {
     if (s == e) return;
 
@@ -91,7 +108,7 @@ class CharFreq {
     const left_arr = [];
     const left_length = m - s + 1;
     for (let i = 0; i < left_length; i++) {
-      left_arr[i] = arr[i + s];
+      left_arr[i] = arr[s + i];
     }
     const right_arr = [];
     const right_length = e - m;
@@ -115,6 +132,7 @@ class CharFreq {
     //* k: for original array (arr)
     while (left_arr.length > i && right_arr.length > j) {
       //* compare
+      //! sort according to frequencies
       if (right_arr[j][1] <= left_arr[i][1]) {
         //* sort (place the smaller in the original array at index k)
         arr[k] = right_arr[j];
@@ -164,13 +182,14 @@ const msg = "hello world";
 //* output: frequency of unique char, and sorted by frequency
 
 //* using hash-table
+//! why hashTable?
 
-//* hashTable: is like array but it's formed of key and value
-//* not index and value as in array
-//* key can be integer or string
-
+//~ 1) hashTable: is like array but it's formed of key and value
+//~ not index and value as in array
+//~ key can be integer or string
 //* key will be character, and its value is frequency
-//* hash-table can be initialized without length
+
+//~ 2) hash-table can be initialized without length
 //! hash-table drawbacks: hash-table can't be sorted
 
 //^ required:
