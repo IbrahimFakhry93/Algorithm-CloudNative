@@ -1,3 +1,11 @@
+//! Sort Hash-table (Map) according to its values (frequencies)
+//* Map or hash-table is a key (character) and value (frequency)
+//* Frequencies are number of a character occurrence in a string (ex. Hello world)
+
+//^ note:
+//* to sort hash-table, we need to convert it into array
+//* in JS to convert hash-table (map) to array we can use (for..of loop on mao entries(keys,values) & push method) or easier spread operator
+
 class CharFreq {
   HashTableMethod(str) {
     //* Map in JS is Built-In Alternatives of hash-table

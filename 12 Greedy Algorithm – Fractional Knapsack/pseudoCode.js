@@ -1,5 +1,9 @@
 //& steps:
 
+//^ note:
+//* this problem can be solved by class structure or function structure
+//* Eng. Metwally chose class structure approach
+
 //^ open: knapsack.js
 //! create class for item
 //~ contains: name, profit, weight, ratio
@@ -34,7 +38,7 @@
 //* loop over length of profits or weights
 //* and create new item and push it inside items array
 
-//! merge sort this items array
+//! merge sort this items array according to ration
 
 //! Place the items in a greedy approach to get the highest profit
 //* create bag instance of knapsack
@@ -44,3 +48,5 @@
 //* update the current capacity and total profit
 
 //! print the knapsack
+
+//! time complexity here is: n * log(n) because of merge sort and rest of loops are O(n) but we neglect them

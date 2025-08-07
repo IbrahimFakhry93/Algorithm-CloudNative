@@ -92,6 +92,9 @@ class CharFreq {
   }
 
   //& Sort Method according to Frequencies
+  //^ note:
+  //* to sort hash-table, we need to convert it into array
+  //* in JS to convert hash-table (map) to array we can use (for..of loop on mao entries(keys,values) & push method) or easier spread operator
   HashTableSort(arr, s, e) {
     if (s == e) return;
 

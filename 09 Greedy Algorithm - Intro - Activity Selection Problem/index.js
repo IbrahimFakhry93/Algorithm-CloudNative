@@ -4,6 +4,7 @@
 //* important slides
 
 //* Greedy algorithm is an optimization technique or strategy
+//* A greedy rule (“choose the biggest win next”) or “pick the best next step”
 
 //? Elements of greedy strategy:
 //* There are sequential steps and in every step, I make a proper decision

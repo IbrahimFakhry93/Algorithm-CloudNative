@@ -43,3 +43,5 @@ while (bag.current_capacity < bag.max_capacity) {
 console.log(bag.items);
 console.log("Bag Current Capacity:", bag.current_capacity);
 console.log("Bag Total Profit:", bag.total_profit);
+
+//! time complexity here is: n * log(n) because of merge sort and rest of loops are O(n) but we neglect them

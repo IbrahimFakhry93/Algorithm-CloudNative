@@ -1,3 +1,5 @@
+//* A greedy rule (“choose the biggest win next”)
+
 // Candidate data as shown in the image
 const candidates = [
   { id: "1st", basicFit: 5, techInterview: null, task: null, overall: null },
