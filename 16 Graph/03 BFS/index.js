@@ -48,5 +48,3 @@
 
 //? H:
 //* move to G and I
-
-//*

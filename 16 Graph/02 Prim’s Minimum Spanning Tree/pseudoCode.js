@@ -1,17 +1,17 @@
-// add first arbitrary vertex to the solution
-// while selected edges count < v - 1
-//     create min store with the biggest possible value
-//     create a temporary store for the position of the minimum in the graph
-//     for i = 0 to v
-//         if vertex i is in the solution
-//             for j = 0 to v
-//                 if vertex j is not in the solution and graph[i, j] > 0 and graph[i, j] < min
-//                     assign graph[i, j] to min
-//                     assign (i, j) to the temporary store
-//     add the vertex from the temporary position to the solution
-//     increase selected edges count by one
-
 //! Prim’s Minimum Spanning Tree
+//* add first arbitrary vertex to the solution
+//* while selected edges count < v - 1
+//*     create min store with the biggest possible value
+//*     create a temporary store for the position of the minimum in the graph
+//*     for i = 0 to v
+//*         if vertex i is in the solution
+//*             for j = 0 to v
+//*                 if vertex j is not in the solution and graph[i, j] > 0 and graph[i, j] < min
+//*                     assign graph[i, j] to min
+//*                     assign (i, j) to the temporary store
+//*     add the vertex from the temporary position to the solution
+//*     increase selected edges count by one
+
 const vertices = ["1", "2", "3", "4", "5", "6"];
 
 //* graphs matrix contain the edges weights that we will use in comparison
@@ -26,7 +26,12 @@ const graph = [
 ];
 
 const v = graph.length; //* graph length  (number of vertices === labels length)
-// Array to mark vertices that are included in the MST
+//* because this graph is completed, completed graph: no of edges =no of vertices
+//! aim:
+//* the aim is to convert complete graph to minimum spanning tree
+
+// Array to mark vertices that are included in the MST (selected edges)
+// Boolean Array
 const inMST = new Array(v).fill(false);
 
 // add first arbitrary vertex to the solution
@@ -52,8 +57,8 @@ while (mstEdges.length < v - 1) {
   //^ outward loop: rows
 
   for (let i = 0; i < v; i++) {
-    //  if vertex i is in the MST
-    if (inMST[i]) {
+    //*  if vertex i is in the MST
+    if (inMST[i] == true) {
       //^ inner loop:
       for (let j = 0; j < v; j++) {
         //* graph[i, j] > 0 : means i refers to j, because in case i refers to j, its case is 1
@@ -67,7 +72,7 @@ while (mstEdges.length < v - 1) {
     }
   }
 
-  // Add the selected edge to the MST result
+  //* Add the selected edge to the MST result
   if (temp_from !== -1 && temp_to !== -1) {
     mstEdges.push([vertices[temp_from], vertices[temp_to]]);
     inMST[temp_to] = true; // Mark the new vertex as included
@@ -86,7 +91,7 @@ while (mstEdges.length < v - 1) {
     break;
   }
 }
-// console.log("MST Edges:", mstEdges);
+console.log("MST Edges:", mstEdges);
 
-//* application:
+//? application:
 //* build minimum routes (edges) of telephone network between cities (vertices)

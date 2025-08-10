@@ -16,12 +16,12 @@ const graph = new Map([
 
 // console.log(graph.size);
 
-// Initialize an empty queue
+//* Initialize an empty queue
 const q = new Queue();
 
 // console.log(q.isEmpty()); // Output: true
 
-// Add elements to the queue
+//* Add elements to the queue
 q.enqueue("A");
 
 // console.log(q.front()); // Output: 'A' (first element)
@@ -50,7 +50,7 @@ while (q.size() > 0) {
       //* one way to print solution
       // console.log(`${current_vertex} => ${destinations[i]}`);
 
-      // second way: Store traversal step
+      //* second way: Store traversal step
       path.push(`${current_vertex} => ${destinations[i]}`);
     }
   }
