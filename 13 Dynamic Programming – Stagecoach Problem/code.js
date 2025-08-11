@@ -12,6 +12,9 @@ const data = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
+//* data indices values are actually costs
+//* so data[i][j] is a cost
+
 const n = data.length;
 const states = Array(n)
   .fill()
@@ -57,3 +60,12 @@ while (i < states.length) {
 
 console.log("Minimum Cost: ", states[0].totalCost);
 console.log("Path:", path.join(" -> "));
+
+//*===============================================================================
+
+//* Where dynamic programming shows up in your code
+//* You’re doing shortest path on a DAG (Directed Acyclic Graph) with only forward edges (i → j where j > i).
+//* That’s a classic dynamic programming setup because you solve “from the end back to the start,” caching subproblem results and reusing them.
+//* states[i].totalCost stores the result and avoids recomputation
+
+//* This ensures all future costs states[i].totalCost are already computed when evaluating states[j].totalCost.
