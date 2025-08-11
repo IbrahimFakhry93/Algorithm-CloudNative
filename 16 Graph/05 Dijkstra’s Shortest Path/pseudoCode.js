@@ -18,7 +18,7 @@
 //* loop on vertices again
 //* set the current vertex and the destinations
 
-//* if(destinations == null) continue  why?  if no branches of this vertex,skip
+//* if(destinations == null) continue  why?  if no branches or edges of this vertex so skip it
 
 //* set currentEdge = destinations[i].target
 

@@ -4,7 +4,9 @@
 
 //* Dijkstra’s Shortest Path is close to stagecoach problem in dynamic programming
 
-//? place ttotal lengths of all vertices as infinity
+//* Edge weight here represents the distance
+
+//? place total lengths of all vertices as infinity
 //* it is like define Max_Integer_Number to compare with
 //* to get minimum at each step
 
@@ -19,5 +21,5 @@
 //* at current step we compare to get the minimum weight or distance
 
 //* Dijkstra's algorithm follows a greedy approach.
-//* At each step, it selects the vertex with the smallest known distance,
+//* At each step, it selects the vertex with the smallest known distance (or weight),
 //* then updates the shortest paths to its neighboring vertices accordingly.

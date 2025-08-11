@@ -6,7 +6,9 @@ class Vertex {
     this.visited = false; // Boolean to track visit status
     this.vertexLinks = []; // Array to store linked edges
 
+    //* Set the starting vertex's totalLength to 0 (this is where the path begins).
     this.totalLength = 0;
+
     this.sourceOfTotalLength = null;
     //* these two values above will be remained assigned to first vertex
     //* because down in Dijkstra method we will start to loop over the vertices from i =1;
@@ -85,6 +87,7 @@ class Graph {
 
   Dijkstra() {
     //* start from one, so starting point total length remain zero
+
     for (let i = 1; i < this.vertices.length; i++) {
       this.vertices[i].totalLength = Number.MAX_SAFE_INTEGER;
     }
@@ -108,6 +111,7 @@ class Graph {
       }
     }
 
+    //! printing the shortestPath
     //* we will move backward from the last vertex in the path
     let path = this.vertices[this.vertices.length - 1].name;
     let v = this.vertices[this.vertices.length - 1];
@@ -124,6 +128,8 @@ class Graph {
     this.resetVertices();
   }
 
+  //* All status properties  (visited, totalLength, sourceOfTotalLength)
+  //* must be reset
   resetVertices() {
     this.vertices.forEach((vertex) => {
       vertex.visited = false;

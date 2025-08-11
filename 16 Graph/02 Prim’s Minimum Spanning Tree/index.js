@@ -14,7 +14,7 @@
 
 //! we will work on complete undirected weighted graph
 //* choose arbitrary (random) starting node
-//* move on the min weigh edge
+//* move on the min weight edge
 
 //* now we have two vertices
 //* choose min connected edges to these two vertices and move along it
@@ -22,6 +22,11 @@
 
 //* if there is an edge between to vertices, one of this vertex is chosen or selected before
 //* neglect this edge (ex. F => D on the slide: 13.png)
+
+//? again
+//? the conditions:
+//* Move on the min weight edge
+//* Neglect previous visited edge or vertex
 
 //^ note:
 //* this technique is greedy, because we didn't loop over all the edge then choose the minimum
