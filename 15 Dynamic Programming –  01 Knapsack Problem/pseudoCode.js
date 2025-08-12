@@ -1,5 +1,7 @@
 //! 0/1 Knapsack Problem
 
+//* we will add table of all possible weights till max weight (open slide)
+
 //* add zero item at first to items arr , for easy code reading
 
 //? nested for loop:

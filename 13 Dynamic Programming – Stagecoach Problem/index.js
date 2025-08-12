@@ -12,6 +12,10 @@
 //* Dynamic programming in the community, is known by tabular method
 //* because its solution depends on tabular method
 
+//* In Dynamic Programming, there are two steps
+//* first step to get all the possible solutions by applying the nested for loop on a table
+//* second step is to get the optimum solution
+
 //! stagecoach problem (الحنطور)
 
 //* we have a weighted (distance) graph

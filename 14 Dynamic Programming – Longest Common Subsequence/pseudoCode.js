@@ -48,13 +48,13 @@ console.log(dp[m][n]);
 
 //* start from the bottom right
 //* dp[m][n]
-//* if (dp[m][n] > dp[m][n - 1)            :
-//*   if (dp[m][n] === dp[m - 1][n])
+//! if (dp[m][n] > dp[m][n - 1)            :
+//~   if (dp[m][n] === dp[m - 1][n])
 //*        the current inherited from top (not match)
 //*        move to top row
 
 //*        (dp[m - 1][n])
-//*   else
+//~   else
 //*   current value is origin of match
 //*   add the char to the solution
 //*   move to the top row

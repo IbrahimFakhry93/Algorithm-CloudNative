@@ -8,6 +8,8 @@
 
 //* that we will try or loop over all possible solutions (stages)
 //* meaning all possible weights (stage weights) till max weight
-//* so we may achieve max profit below max weight
+//* so we may achieve max profit before achieving the max weight
 
 //* W_max: max weight: 8 kg
+
+//* we will add a table of all possible weights till max weight (open slide)
