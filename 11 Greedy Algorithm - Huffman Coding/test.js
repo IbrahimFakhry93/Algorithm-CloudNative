@@ -67,10 +67,13 @@ class Huffman {
     this.generateCodes(minHeapRoot, "");
   }
 
+  //* the str is resulted new encoding of each character ( compression)
   generateCodes(node, str) {
+    //* here after reaching leaf nodes, so no more branches on left or right
     if (node == null) {
       return;
     }
+    //* here we just reach the leaf nodes
     if (node.char != this.internal_char) {
       this.codesHash.set(node.char, str);
     }

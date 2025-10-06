@@ -8,13 +8,90 @@
 //* character representation in computer
 //* every character represented eventually in PC as binary
 
-//* char => decimal code  => Binary
+//* char => decimal code (ascii or utf)  => Binary
 
-//* required:
-//* compress number of bis used to encode the characters
+//? what is required:
+//* is to compress number of bits used to encode the characters
+
+//^ open slides:
+//? example of word "internet"
+//* make table of chars and their frequencies in word "internet"
+
+//? other method for huffman coding:
+//* use binary tree method, most common in tech community
+//* and faster than auxiliary table method introduced by huffman in his paper
+
+//^ open slides
+//* to decompress the data after compression, we use (Huffman map)
+
+//? huffman map: for word internet
+//* it is: original binary code of each char + space + compressed binary code of each char
+
+//? huffman map + EOH (end of header, 8 bit) + compressed code
+
+//* Huffman coding efficiency shines out in the long messages to compress
+//* on the reverse with short message, it may cause inflation in size of encode of bits
+
+//& Title: Huffman Coding Efficiency
+
+//? What is Huffman Coding?
+//* Huffman coding is a variable-length prefix coding algorithm
+//* It is used for lossless data compression
+//* Frequent characters get shorter binary codes
+//* Rare characters get longer codes
+//* No code is a prefix of another → safe decoding
+
+//? When is Huffman Effective?
+//* Works best when:
+//*   - Message is long
+//*   - Characters repeat often
+//*   - Frequency table and encoding tree are worth building
+//* Example: Compressing a long paragraph with many spaces and common letters
+
+//? Short Message Limitation
+//* For short messages, Huffman may not save space
+//* Reason: Overhead of storing metadata (Huffman tree/map)
+//* Metadata includes:
+//*   - Frequency table
+//*   - Huffman tree or map (char → binary code)
+//*   - Encoded bitstream
+//* These extras can make the compressed version larger than the original
+
+//? Summary
+//* Huffman coding shines in large, repetitive datasets
+//* For short or random messages, compression may be inefficient
+//* Always consider message length and character frequency before applying Huffman
 
 //*=================================================================================================
 //! 21 – Greedy Algorithm – Huffman Coding – Code
+
+//^ open: Complete and non complete binary tree.pdf
+
+//& Title: Heap – Binary Tree Conditions
+
+//? Heap Definition
+//* A heap is a special type of binary tree used in priority queues and sorting algorithms
+
+//? Heap Conditions
+//* 1) It must be a complete binary tree
+//*    - All levels are fully filled except possibly the last
+//*    - The last level is filled from left to right
+
+//* 2) It must satisfy the heap property:
+//*    - For a **max-heap**: every parent node ≥ its children
+//*    - For a **min-heap**: every parent node ≤ its children
+
+//? Example (Min-Heap)
+//*        2
+//*       / \
+//*      3   4
+//*     /
+//*    5
+//* All parents ≤ children → valid min-heap
+
+//? Summary
+//* Complete binary tree + heap property = valid heap
+//* Used in heap sort, priority queues, and efficient selection algorithms
 
 //^ lookup slides - very important
 
@@ -51,6 +128,9 @@
 
 //& Title: generateCodes Function in Huffman Coding
 //? Note: This recursive function traverses a Huffman tree and assigns a binary code to each leaf node.
+//^ leaf node here, is the node which has the character
+//^ look up to understand photo 20.png in slides folder
+
 //? Note: The binary code is built from the path taken from the root to the leaf.
 //^ Parameters:
 //*    HeapNode node => The current node in the Huffman tree being processed.
