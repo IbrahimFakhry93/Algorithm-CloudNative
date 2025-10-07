@@ -3,6 +3,7 @@
 
 //* and standard deviation
 
+//* sigma is a loop
 //* loops consumes computer resources
 
 //^ model v-1
@@ -11,6 +12,8 @@
 //* we can't merge the third loop because we need to calculate the average first
 //^ mode v-2
 //* we merge the two loops into one loop for code performance optimization
+
+//? think about first about inputs
 
 //& my code:
 
